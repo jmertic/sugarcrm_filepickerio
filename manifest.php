@@ -43,7 +43,7 @@ $manifest = array (
         ),
     'readme' => '',
     'key' => 'Filepicker.io SugarField',
-    'author' => '',
+    'author' => 'John Mertic',
     'description' => 'Filepicker.io SugarField',
     'icon' => '',
     'is_uninstallable' => true,
