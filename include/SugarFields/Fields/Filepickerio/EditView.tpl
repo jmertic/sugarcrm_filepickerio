@@ -37,12 +37,23 @@ $.getScript("//api.filepicker.io/v0/filepicker.js", function() {
 {else}
 {assign var="value" value={{sugarvar key='value' string=true}} }
 {/if}
-<span class="sugar_field" id="{{if empty($displayParams.idName)}}{{sugarvar key='name'}}{{else}}{{$displayParams.idName}}{{/if}}">
-<a id="{{if empty($displayParams.idName)}}{{sugarvar key='name'}}{{else}}{{$displayParams.idName}}{{/if}}_link"href="{$value}" target='_blank'>{$value}</a>
-</span>
+<a id="{{if empty($displayParams.idName)}}{{sugarvar key='name'}}{{else}}{{$displayParams.idName}}{{/if}}_link" href="{$value}" target='_blank'>{$value}</a>
 <input type='filepicker-dragdrop' 
     name='{{if empty($displayParams.idName)}}{{sugarvar key='name'}}{{else}}{{$displayParams.idName}}{{/if}}' 
     id='{{if empty($displayParams.idName)}}{{sugarvar key='name'}}{{else}}{{$displayParams.idName}}{{/if}}'
     {literal}
-    onchange="document.getElementById('{/literal}{{if empty($displayParams.idName)}}{{sugarvar key='name'}}{{else}}{{$displayParams.idName}}{{/if}}{literal}_link').innerHTML=document.getElementById('{/literal}{{if empty($displayParams.idName)}}{{sugarvar key='name'}}{{else}}{{$displayParams.idName}}{{/if}}{literal}_link').href=event.files[0].url;"
+    onchange="document.getElementById('{/literal}{{if empty($displayParams.idName)}}{{sugarvar key='name'}}{{else}}{{$displayParams.idName}}{{/if}}{literal}_link').innerHTML=event.files[0].data.filename;document.getElementById('{/literal}{{if empty($displayParams.idName)}}{{sugarvar key='name'}}{{else}}{{$displayParams.idName}}{{/if}}{literal}_link').href=event.files[0].url;"
     {/literal}>
+
+{literal}
+<script type="text/javascript">
+$.ajax({
+    url: '{/literal}{{sugarvar key='value'}}{literal}',
+    type: 'PUT',
+    success: function(result) {
+        result = jQuery.parseJSON(result);
+        $('#{/literal}{{if empty($displayParams.idName)}}{{sugarvar key='name'}}{{else}}{{$displayParams.idName}}{{/if}}{literal}_link').text(result.filename);
+    }
+});
+</script>
+{/literal}

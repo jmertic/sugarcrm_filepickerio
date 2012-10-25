@@ -31,3 +31,15 @@ or implied, of John Mertic.
 {{if !empty($displayParams.enableConnectors)}}
 {{sugarvar_connector view='DetailView'}}
 {{/if}}
+{literal}
+<script type="text/javascript">
+$.ajax({
+    url: '{/literal}{{sugarvar key='value'}}{literal}',
+    type: 'PUT',
+    success: function(result) {
+        result = jQuery.parseJSON(result);
+        $('#{/literal}{{if empty($displayParams.idName)}}{{sugarvar key='name'}}{{else}}{{$displayParams.idName}}{{/if}}{literal} > a').text(result.filename);
+    }
+});
+</script>
+{/literal}
