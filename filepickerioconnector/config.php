@@ -1,6 +1,6 @@
 <?php
-
-/**
+if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
+/** 
 Copyright 2012 John Mertic. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are
@@ -28,55 +28,14 @@ authors and should not be interpreted as representing official policies, either 
 or implied, of John Mertic.
 */
 
-$manifest = array (
-    'acceptable_sugar_versions' => array (
-        'regex_matches' => array(
-            '6\.[56789]\.\d\w*'
-            ),
-        ),
-    'acceptable_sugar_flavors' => array(
-        'CE',
-        'PRO',
-        'CORP',
-        'ENT',
-        'ULT',
-        ),
-    'readme' => '',
-    'key' => 'Filepicker.io SugarField',
-    'author' => 'John Mertic',
-    'description' => 'Filepicker.io SugarField',
-    'icon' => '',
-    'is_uninstallable' => true,
-    'name' => 'Filepicker.io SugarField',
-    'published_date' => '2013-01-21 15:31:07',
-    'type' => 'module',
-    'version' => '20130122',
-    'remove_tables' => false,
-    );
-
-$installdefs = array (
-    'id' => 'filepickerio',
-    'copy' => array (
-        array (
-            'from' => '<basepath>/include/SugarFields/Fields/Filepickerio/',
-            'to' => 'custom/include/SugarFields/Fields/Filepickerio/',
-            ),
-        array (
-            'from' => '<basepath>/modules/DynamicFields/templates/Fields/',
-            'to' => 'custom/modules/DynamicFields/templates/Fields/',
-            ),
-        ),
-    'language' => array (
-        array (
-            'from' => '<basepath>/Language/en_us.filepickerio.php',
-            'to_module' => 'ModuleBuilder',
-            'language' => 'en_us',
-            ),
-        ),
-    'connectors' => array (
-        array (
-            'connector' => '<basepath>/filepickerioconnector',
-            'name' => 'ext_rest_filepickerio',
-            ),
-        ),
-    );
+$config = array (
+  'name' => 'filepicker.io&#169;',
+  'order' => 1,
+  'eapm' => array(
+    'enabled' => false,
+  ),
+  'properties' => 
+  array (
+    'api_key'=>'MYSECRETKEY',
+  ),
+);
