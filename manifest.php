@@ -48,9 +48,9 @@ $manifest = array (
     'icon' => '',
     'is_uninstallable' => true,
     'name' => 'Filepicker.io SugarField',
-    'published_date' => '2013-01-21 15:31:07',
+    'published_date' => '2013-01-23 21:31:07',
     'type' => 'module',
-    'version' => '20130122',
+    'version' => '20130123',
     'remove_tables' => false,
     );
 

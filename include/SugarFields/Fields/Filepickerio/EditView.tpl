@@ -28,7 +28,7 @@ or implied, of John Mertic.
 {literal}
 <script type="text/javascript">
 $.getScript("//api.filepicker.io/v0/filepicker.js", function() {
-    filepicker.setKey('{{/literal}}{{$displayParams.apiKey}}{{literal}}');
+    filepicker.setKey('{{$displayParams.apiKey}}');
 });
 </script>
 {/literal}
